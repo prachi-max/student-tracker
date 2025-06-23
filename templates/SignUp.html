@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>SING UP</title>
+</head>
+<body>
+      {% include 'navbar.html' %}
+    <h2>Create Account</h2>
+    <form method="POST" action="/SignUp">
+    <input type="text" name="fullname" placeholder="Full Name" required><br><br>
+    <input type="email" name="email" placeholder="Email" required><br><br>
+    <input type="text" name="username" placeholder="Username" required><br><br>
+    <input type="password" name="password" placeholder="Password" required><br><br>
+    <input type="password" name="confirm_password" placeholder="Confirm Password" required><br><br>
+    
+    <select name="role" required>
+        <option value="student">Student</option>
+        <option value="parent">Parent</option>
+    </select><br><br>
+
+    <button type="submit">Sign Up</button>
+</form>
+
+</body>
+</html>

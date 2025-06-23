@@ -1,0 +1,22 @@
+<nav>
+  <div class="nav-left">
+    <div class="logo-title">
+      <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo">
+    </div>
+     
+       <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="{{ url_for('home') }}" onclick="closeMenu()">Home</a></li>
+      <li><a href="/add"  onclick="closeMenu()">Add Data</a></li>
+      <li><a href="/dashboard" onclick="closeMenu()">Progress</a></li>
+      <li><a href="/login" onclick="closeMenu()" >Login</a></li>
+      <li><a href="{{ url_for('calendar') }}" onclick="closeMenu()">Calendar</a></li>
+    </ul>
+  </div>
+
+  <div class="nav-right">
+    <a href="/SignUp"><button class="btn">SIGN UP</button></a>
+    <a href="/login"><button class="btn">SIGN IN</button></a>
+  </div>
+</nav>

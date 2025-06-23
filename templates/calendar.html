@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>calender</title>
+</head>
+<body>
+   
+<!-- calendar.html -->
+
+  {% include 'navbar.html' %}
+  <h2>📅 Semester Calendar</h2>
+
+  <form method="POST">
+    <label>Event Title:</label><br>
+    <input type="text" name="title" placeholder="Event Title" required>
+
+    <label>Date:</label><br>
+    <input type="date" name="date" required>
+    <button type="submit">Add Event</button>
+  </form>
+
+  <h3 class="events">Upcoming Events</h3>
+  <ul>
+    {% for event in events %}
+      <li>{{ event[0] }} - {{ event[1] }}</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
+
+

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subjects</title>
+</head>
+<body>
+   
+
+<h2>Add New Subject + Goal</h2>
+<form action="/add_subject" method="POST">
+  <label>📘 Subject:</label><br>
+  <input type="text" name="subject" required><br><br>
+
+  <label>📅 Semester:</label><br>
+  <input type="number" name="semester" required><br><br>
+
+  <label>📚 Topics (comma-separated):</label><br>
+  <textarea name="topics" rows="3" required></textarea><br><br>
+
+  <label>🎯 Target Marks:</label><br>
+  <input type="number" name="target" required><br><br>
+
+  <button type="submit">Save + Get Learning Plan</button>
+</form>
+ 
+</body>
+</html>

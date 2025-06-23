@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Perfomance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+     {% include 'navbar.html' %}
+    <h2>Add Your Perfomance Data</h2>
+  <form method="POST">
+
+  <label>Standard:</label>
+  <input type="text" name="standard" required><br>
+
+  <label>Subject:</label>
+  <input type="text" name="subject" required><br>
+
+  <label>Semester:</label>
+  <input type="text" name="semester" required><br>
+
+  <label>Topic:</label>
+  <input type="text" name="topic" required><br>
+
+  <label>Target Marks:</label>
+  <input type="number" name="target_marks" required><br>
+
+  <button type="submit" value="Save">Save</button>
+</form>
+
+</body>
+</html>

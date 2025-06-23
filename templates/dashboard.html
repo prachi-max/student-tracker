@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="card-box">
+      <div class="card">
+      <h3>Total Subjects</h3>
+      <p>{{ total_subjects }}</p>
+    </div>
+   <div class="card">
+     <h3>Total Topics</h3>
+     <p>{{ total_topics }}</p>
+    </div>
+   <div class="card">
+     <h3>Avg Target Marks</h3>
+     <p>{{ average_target }}</p>
+  </div>
+</div>
+
+<table border="1">
+  <tr>
+    <th>Standard</th>
+    <th>Subject</th>
+    <th>Semester</th>
+    <th>Topic</th>
+    <th>Target Marks</th>
+  </tr>
+  {% for row in data %}
+  <tr>
+    <td>{{ row[2] }}</td>
+    <td>{{ row[3] }}</td>
+    <td>{{ row[4] }}</td>
+    <td>{{ row[5] }}</td>
+    <td>{{ row[6] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+  
+<a class="pdf" href="{{ url_for('download_pdf') }}">
+    <button style="padding: 10px 20px;    background-color: #4B0082; color: white; border: none; border-radius: 5px;">📄 Download PDF Report</button>
+</a>
+
+
+<h3>📘 Smart AI Suggestions</h3>
+<ul>
+  {% for suggestion in feedback %}
+    <li>{{ suggestion|safe }}</li>
+  {% endfor %}
+</ul>
+
+
+
+
+<h3 class="sub">📈 Subject vs Target Marks</h3>
+<canvas id="targetChart" width="400" height="200"></canvas>
+
+<script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ <script>
+  const ctx = document.getElementById('targetChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: {{ subjects|tojson }},
+      datasets: [{
+        label: 'Target Marks',
+        data: {{ targets|tojson }},
+        backgroundColor: 'rgba(106, 13, 173, 0.7)',
+        borderColor: 'rgba(106, 13, 173, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true, max: 100 }
+      }
+    }
+  });
+</script> 
+
+</body>
+</html>

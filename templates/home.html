@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <title>Student Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+     {% include 'navbar.html' %}
+    <h1>Welcome to Your <br>Performance Tracker</h1>
+    <h2>Join this platform</h2>
+    <div class="authe-button">
+      <a href="/SignUp"><button>SING UP</button></a>
+      <a href="/login"><button>SING IN</button></a>
+     </div><br><br><br><br><br><br><br><br>
+
+    <section class="start-1">
+     <div class="start-container">
+    
+    <!-- Left side: image -->
+    <div class="start-image">
+      <img src="{{ url_for('static', filename='side-photo.jpg') }}" alt="Student Image">
+    </div>
+
+    <!-- Right side: text and buttons -->
+    <div class="start-content">
+      <h2>Add Your Data</h2>
+      <div class="start-buttons">
+        <a href="/add" class="start1">
+          <button class="start-track">+ ADD</button>
+        </a>
+        <a href="/dashboard" class="start1">
+          <button class="dashboard">View Progress</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<br><br><br><br>
+
+
+
+    <footer class="footer">
+       <div class="footer-container">
+         <div class="footer-logo">StudentTracker</div>
+    
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">Add Data</a>
+      <a href="#">Progress</a>
+      <a href="#">Login</a>
+      <a href="#">Calendar</a>
+    </div>
+    
+    <div class="footer-social">
+      <a href=""><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 StudentTracker | All rights reserved.
+  </div>
+</footer>
+
+<script src="{{ url_for('static', filename='js/navbar.js') }}"></script>
+<script>
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('show');
+  }
+
+  function closeMenu() {
+  const navLinks = document.getElementById('nav-links');
+  navLinks.classList.remove('show');
+}
+</script>
+
+</body>
+</html>

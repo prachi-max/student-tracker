@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>login</title>
+</head>
+<body>
+     {% include 'navbar.html' %}
+
+     <h2>Login</h2>
+<form method="POST">
+    <input type="text" name="username" placeholder="Username" required><br>
+    <input type="password" name="password" placeholder="Password" required><br>
+    <select name="role">
+        <option value="student">Student</option>
+        <option value="parent">Parent</option><br><br>
+    </select><br><br>
+    <button type="submit">Login</button>
+</form>
+<a  class="new-user" href="/SignUp">New user? Sign Up</a>
+</body>
+</html>
